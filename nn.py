@@ -38,31 +38,3 @@ class MLP:
     
     def parameters(self):
         return [p for l in self.ls for p in l.parameters()]
-
-
-xs = [
-    [2, 1, 0, 3],
-    [0, 0, 0, 0],
-    [3, 1, 1, 1],
-    [3, 2, 0, 0]
-]
-mlp = MLP([4, 4, 4, 1])
-
-yA = [1, -1, 1, -1]
-
-for i in range(200):
-    yP = [mlp(x) for x in xs]
-    
-    loss = sum((yAi - yPi) ** 2 for yAi, yPi in zip(yA, yP))
-    
-    for p in mlp.parameters():
-        p.grad = 0
-        
-    loss.backward()
-    
-    for p in mlp.parameters():
-        p.data += -0.1 * p.grad
-    
-    print(f'{i+1}: {loss.data}')
-    
-print(yP)
