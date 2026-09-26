@@ -1,5 +1,5 @@
 # TinyGrad: An Autograd Engine
-TinyGrad is an autograd engine built entirely using python3.14. The actual engine is inside of `value.py`, with a Multi-Layer-Perceptron to train networks in `nn.py`.
+TinyGrad is an autograd engine built entirely using python3.14. The actual engine is inside of [value.py](value.py), with a Multi-Layer-Perceptron to train networks in [nn.py](nn.py).
 
 ## Qualities and Drawbacks
 TinyGrad is truthful in what it is: a tiny autograd engine based on a very simple backpropagation algorithm using chain-rule.
