@@ -7,7 +7,7 @@ class Neuron:
         self.b = Value(random.uniform(-1, 1))
     
     def __call__(self, x):
-        z = sum((xi * wi for xi, wi in zip(x, self.w)), self.b)
+        z = sum((xi * wi for xi, wi in zip(x, self.w)), self.b) # Pre-activation
         out = z.tanh()
         
         return out
@@ -27,7 +27,7 @@ class Layer:
         return [p for n in self.l for p in n.parameters()]
 
 class MLP:
-    def __init__(self, mlp):
+    def __init__(self, mlp): # mlp: [input, layer1...n, output]
         self.ls = [Layer(mlp[i], mlp[i+1]) for i in range(len(mlp) - 1)]
         
     def __call__(self, x):

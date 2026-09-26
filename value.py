@@ -80,6 +80,7 @@ class Value:
         topo = []
         visited = set()
         
+        # Orders tree topologically
         def toposort(node):
             if node not in visited:
                 visited.add(node)
@@ -89,5 +90,7 @@ class Value:
                 topo.append(node)
 
         toposort(self)
+        
+        # Backward pass
         for node in reversed(topo):
             node._backward()
